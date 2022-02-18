@@ -4,7 +4,7 @@ import Loading from './components/Loading'
 import supabase from './lib/api'
 import { AuthSession, User } from '@supabase/supabase-js'
 import { useAuth } from './store/auth'
-
+import { useDarkMode } from 'usehooks-ts'
 import './index.css'
 
 const Register = lazy(() => import('./pages/Register'))
@@ -13,8 +13,20 @@ const Home = lazy(() => import('./pages/Home'))
 const PasswordReset = lazy(() => import('./pages/PasswordReset'))
 
 function App () {
+  const { isDarkMode } = useDarkMode()
+
   const user = useAuth(state => state.user)
   const setUser = useAuth(state => state.setUser)
+
+  useEffect(() => {
+    const element: HTMLElement = document.querySelector('html')!
+
+    if (isDarkMode) {
+      element.dataset.theme = 'dark'
+    } else {
+      element.dataset.theme = 'light'
+    }
+  }, [])
 
   useEffect(() => {
     const session: AuthSession | null = supabase.auth.session()
