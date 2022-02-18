@@ -1,4 +1,6 @@
-const PasswordReset = () => {
+import { FC } from 'react'
+
+const PasswordReset: FC = () => {
   return <div>PasswordReset</div>
 }
 
