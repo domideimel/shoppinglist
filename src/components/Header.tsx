@@ -11,7 +11,7 @@ const Header: FC = () => {
         </div>
         <div className="flex-none">
           <div className="dropdown">
-            <button onClick={toggleIsOpen} className="btn btn-ghost btn-circle">
+            <button className="btn btn-ghost btn-circle">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                    className="inline-block w-5 h-5 stroke-current">
                 <path
