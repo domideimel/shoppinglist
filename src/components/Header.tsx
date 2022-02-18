@@ -10,8 +10,8 @@ const Header: FC = () => {
   }
 
   return (
-    <div className="navbar bg-base-100 sticky top-0">
       <div className="xl:container xl:mx-auto">
+    <div className="navbar bg-base-100 sticky top-0">
         <div className="flex-1">
           <Link className="btn btn-ghost normal-case text-xl" to="/">Shopping Liste</Link>
         </div>
