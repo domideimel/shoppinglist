@@ -3,12 +3,6 @@ import { Link } from 'react-router-dom'
 import SubMenu from './SubMenu'
 
 const Header: FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-
-  const toggleIsOpen = () => {
-    setIsOpen(!isOpen)
-  }
-
   return (
       <div className="xl:container xl:mx-auto">
     <div className="navbar bg-base-100 sticky top-0">
