@@ -1,5 +1,5 @@
 import './index.css'
-
+import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { FC, lazy, Suspense, useEffect } from 'react'
 import Loading from './components/Loading'
@@ -7,12 +7,12 @@ import supabase from './lib/api'
 import { AuthSession, User } from '@supabase/supabase-js'
 import { useAuth } from './store/auth'
 import { useDarkMode } from 'usehooks-ts'
+import { ToastContainer } from 'react-toastify'
 
 import Header from './components/Header'
 
 const Register = lazy(() => import('./pages/Register'))
 const Login = lazy(() => import('./pages/Login'))
-const Logout = lazy(() => import('./pages/Logout'))
 const Home = lazy(() => import('./pages/Home'))
 const PasswordReset = lazy(() => import('./pages/PasswordReset'))
 
@@ -56,11 +56,11 @@ const App: FC = () => {
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/login" element={<Login/>}/>
-            <Route path="/logout" element={<Logout/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/reset-password" element={<PasswordReset/>}/>
           </Routes>
         </div>
+        <ToastContainer/>
       </BrowserRouter>
     </Suspense>
   )
