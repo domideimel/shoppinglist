@@ -52,7 +52,7 @@ const App: FC = () => {
     <Suspense fallback={<Loading/>}>
       <BrowserRouter>
         <Header/>
-        <div className="xl:container xl:mx-auto p-6">
+        <div className="prose xl:mx-auto">
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/login" element={<Login/>}/>

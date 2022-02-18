@@ -1,12 +1,8 @@
 import { FC } from 'react'
-import SignUp from '../components/SignUp'
+import LoginC from '../components/Login'
 
 const Login: FC = () => {
-  return <div className='prose mx-auto'>
-    <h1>Login</h1>
-
-    <SignUp />
-  </div>
+  return (<LoginC />)
 }
 
 export default Login
