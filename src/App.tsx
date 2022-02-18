@@ -1,3 +1,5 @@
+import './index.css';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { lazy, Suspense, useEffect } from 'react'
 import Loading from './components/Loading'
@@ -5,7 +7,8 @@ import supabase from './lib/api'
 import { AuthSession, User } from '@supabase/supabase-js'
 import { useAuth } from './store/auth'
 import { useDarkMode } from 'usehooks-ts'
-import './index.css'
+
+import Header from './components/Header'
 
 const Register = lazy(() => import('./pages/Register'))
 const Login = lazy(() => import('./pages/Login'))
@@ -44,17 +47,19 @@ function App () {
     }
   }, [user])
 
-  return (
-    <Suspense fallback={<Loading/>}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/reset-password" element={<PasswordReset/>}/>
-        </Routes>
-      </BrowserRouter>
-    </Suspense>
+  return (<>
+      <Header/>
+      <Suspense fallback={<Loading/>}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/register" element={<Register/>}/>
+            <Route path="/reset-password" element={<PasswordReset/>}/>
+          </Routes>
+        </BrowserRouter>
+      </Suspense>
+    </>
   )
 }
 
